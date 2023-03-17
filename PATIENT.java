@@ -5,7 +5,11 @@ public class PATIENT {
     private char sex;
     private int age;
 
-
+    public PATIENT(String name, char sex,int age) {
+        this.name = name;
+        this.sex = sex;
+        this.age = age;
+    }
 
     public String getName() {
         return name;
@@ -47,14 +51,26 @@ public class PATIENT {
         this.age = age;
     }
 
-    public PATIENT(String name, double height, double weight, char sex, int age) {
-        this.name = name;
-        this.height = height;
-        this.weight = weight;
-        this.sex = sex;
-        this.age = age;
-    }
 
     public PATIENT() {
     }
+    public void imc(){
+        double imc=getWeight()/(getHeight()*getHeight());
+        if ((imc<18.50) || (imc <24.99)){
+            System.out.println("Peso normal"
+                    +"\nIMC obtenido:"+imc
+                    +"\nnombre:"+getName());
+        }else if((imc<25.00) || (imc<29.99)){
+            System.out.println("esta en sobrepeso;"
+                    +"\nIMC obtenido:"+imc
+                    +"\nname"+getName());
+        }
+    }
+
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 }
+
+
